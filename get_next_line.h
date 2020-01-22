@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 07:12:08 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/21 11:00:08 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/22 09:51:14 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,22 @@
 # include <limits.h>
 
 # define BUFFER_SIZE 32
+# define RET_RED 1
+# define RET_EOF 0
+# define RET_ERR -1
 
 /*
-** ==== GNL    =================================================================
+** ***** GNL    ************************************************************* **
 */
 
 int		get_next_line(int fd, char **line);
 
 /*
-** ==== UTILS ==================================================================
+** ***** UTILS    *********************************************************** **
 */
 
 size_t	ft_strlen(const char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len)
-
 
 #endif
