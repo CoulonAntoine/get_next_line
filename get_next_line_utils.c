@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 07:16:32 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/22 09:40:56 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/23 08:21:58 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,44 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	ft_strcat(str, s1);
 	ft_strcat(str, s2);
 	return (str);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	int				i;
+	unsigned char	*ptr;
+
+	if (!(ptr = malloc(count * size)))
+		return (NULL);
+	i = 0;
+	while (i < count * size)
+	{
+		ptr[i] = 0;
+		i++;
+	}
+	return (ptr);
+}
+
+char	*ft_strcat(char *dest, const char *src)
+{
+	size_t	i;
+	size_t	len;
+
+	if (!dest && !src)
+		return (NULL);
+	if (!dest)
+		return ((char *)src);
+	if (!src)
+		return (dest);
+	i = 0;
+	len = ft_strlen(dest);
+	while (src[i])
+	{
+		dest[len + i] = src[i];
+		i++;
+	}
+	dest[len + i] = '\0';
+	return (dest);
 }
 
 char		*ft_substr(char const *s, unsigned int start, size_t len)

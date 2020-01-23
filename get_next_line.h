@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 07:12:08 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/22 09:51:14 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/23 08:20:51 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ int		get_next_line(int fd, char **line);
 */
 
 size_t	ft_strlen(const char *s);
+char	*ft_strcat(char *dest, const char *src);
+void	*ft_calloc(size_t count, size_t size);
 char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
