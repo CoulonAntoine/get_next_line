@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 08:04:56 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/23 08:22:15 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/26 17:15:07 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void	ft_putstr(char *s)
 int		main(int ac, char **av)
 {
 	int		fd;
+	int		ret;
 	char	*line;
 	
 	if (ac != 2)
@@ -37,10 +38,15 @@ int		main(int ac, char **av)
 		ft_putstr("~ The file could not be opened.\n");
 		return (0);
 	}
-	while (get_next_line(fd, &line) == 1)
+	ret = get_next_line(fd, &line);
+	while ( ret == 1)
 	{
 		ft_putstr(line);
 		ft_putstr("\n");
 	}
+	if (ret == 0)
+		ft_putstr("~ EOF\n");
+	if (ret == -1)
+		ft_putstr("~ ERR\n");
 	return (0);
 }
