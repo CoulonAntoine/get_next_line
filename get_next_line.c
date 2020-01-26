@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 07:15:36 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/23 09:09:12 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/23 14:12:05 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ static int	ft_rest(char **rest, char **line)
 	tmp = *rest;
 	while (tmp[i] && tmp[i] != '\n')
 		i++;
-	*line = ft_substr(tmp, 0, i);
+	if (!(*line = ft_substr(tmp, 0, i)))
+		return (-1);
 	if (ft_strlen(tmp) > i)
 	{
 		i++;
@@ -118,10 +119,14 @@ static int	ft_read(int fd, char **rest, char **line)
 int			get_next_line(int fd, char **line)
 {
 	static char	*fd_rest[OPEN_MAX];
+	int			flag;
 
-	if (BUFFER_SIZE <= 0 || !line || fd < 0 || read(fd, 0, 0))
+	if (BUFFER_SIZE <= 0 || !line || fd < 0 ||
+	read(fd, 0, 0) || fd >= OPEN_MAX)
 		    return (-1);
-	if (!ft_rest(&(fd_rest[fd]), line))
+	if (!(flag = ft_rest(&(fd_rest[fd]), line)))
 		return (ft_read(fd, &(fd_rest[fd]), line));
+	if (flag == -1)
+		return (-1);
 	return (1);
 }
