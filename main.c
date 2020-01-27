@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 08:04:56 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/26 17:15:07 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/27 09:57:52 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int		main(int ac, char **av)
 		ft_putstr(line);
 		ft_putstr("\n");
 	}
+	ft_putstr(line);
+	ft_putstr("\n");
 	if (ret == 0)
 		ft_putstr("~ EOF\n");
 	if (ret == -1)

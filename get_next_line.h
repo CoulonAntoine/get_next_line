@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 07:12:08 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/26 18:42:04 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/27 14:10:20 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+#include <stdio.h>
 
-# include "stdio.h"
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 32
+# endif
 
-# define BUFFER_SIZE 32
 # define RET_RED 1
 # define RET_EOF 0
 # define RET_ERR -1
