@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 07:15:36 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/27 15:09:53 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/27 15:21:23 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	ft_retrieve_fd(int fd, char **rest, char **line)
 	if ((offset = read(fd, buffer, BUFFER_SIZE)) == -1)
 		return (-1);
 	buffer[offset] = '\0';
-	i = ft_findnl(tmp1);
+	i = ft_findnl((char *)buffer);
 	if (!(tmp1 = ft_substr((char *)buffer, 0, i)))
 		return (-1);
 	tmp2 = *line;
@@ -98,21 +98,21 @@ int			get_next_line(int fd, char **line)
 		return (RET_RED);
 }
 
-// int			main(void)
-// {
-// 	char	*rest;
-// 	char	*line;
-// 	int		ret;
+int			main(void)
+{
+	char	*rest;
+	char	*line;
+	int		ret;
 
-// 	rest = ft_strdup("hey\ntest");
-// 	line = NULL;
-// 	ret = ft_retrieve_rest(&rest, &line);
-// 	printf("ret: |%d|\nrest: |%s|\nline: |%s|\n", ret, rest, line);
-// 	printf("---\n");
-// 	ret = ft_retrieve_rest(&rest, &line);
-// 	printf("ret: |%d|\nrest: |%s|\nline: |%s|\n", ret, rest, line);
-// 	return (0);
-// }
+	rest = 0;//ft_strdup("hey\ntest");
+	line = NULL;
+	ret = ft_retrieve_rest(&rest, &line);
+	printf("ret: |%d|\nrest: |%s|\nline: |%s|\n", ret, rest, line);
+	printf("---\n");
+	ret = ft_retrieve_rest(&rest, &line);
+	printf("ret: |%d|\nrest: |%s|\nline: |%s|\n", ret, rest, line);
+	return (0);
+}
 
 
 
