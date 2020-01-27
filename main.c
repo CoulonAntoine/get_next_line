@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 08:04:56 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/27 09:57:52 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/27 15:06:39 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		main(int ac, char **av)
 		return (0);
 	}
 	ret = get_next_line(fd, &line);
-	while ( ret == 1)
+	while ((ret = get_next_line(fd, &line)) == 1)
 	{
 		ft_putstr(line);
 		ft_putstr("\n");
