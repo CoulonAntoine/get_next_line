@@ -1,19 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 08:04:56 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/29 08:08:06 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/29 12:01:04 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
 
 static void	ft_putchar_fd(char c, int fd)
 {
@@ -54,17 +51,20 @@ int		main(int ac, char **av)
 	int		i;
 	int		ret;
 	char	*line;
-	
-	if (ac != 2)
+
+	if (ac > 2)
 	{
 		ft_putstr("~ Please enter the file path.\n");
 		return (0);
 	}
-	if ((fd = open(av[1], O_RDONLY)) == -1)
+	else if (ac == 2 && (fd = open(av[1], O_RDONLY)) == -1)
 	{
 		ft_putstr("~ The file could not be opened.\n");
 		return (0);
 	}
+	else
+		fd = 0;
+	
 	i = 0;
 	while ((ret = get_next_line(fd, &line)) == 1)
 	{

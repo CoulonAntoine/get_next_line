@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 07:15:36 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/29 08:40:00 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/29 11:42:14 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static int	ft_retrieve_fd(int fd, char **rest, char **line)
 		return (-1);
 	free(tmp1);
 	free(tmp2);
-	if (ft_strlen((char *)buffer) > ++i)
+	if (ft_strlen((char *)buffer) > i)
 	{
 		tmp1 = *rest;
 		if (!(tmp2 = ft_substr((char *)buffer, i, ft_strlen((char *)buffer))))
@@ -100,11 +100,3 @@ int			get_next_line(int fd, char **line)
 	else
 		return (RET_RED);
 }
-
-
-
-
-
-
-
-
