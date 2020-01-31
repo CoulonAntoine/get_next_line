@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 07:15:36 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/31 13:18:38 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/31 13:58:57 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ static int	ft_retrieve_rest(char **rest, char **line)
 	
 	if (!*rest)
 	{
-		*line = NULL;
+		if (!(*line = ft_calloc(1, 1)))
+			return (-1);
 		return (0);
 	}
 	tmp = *rest;
@@ -69,16 +70,13 @@ static int	ft_read(int fd, char **rest, char **line)
 				return (-1);
 			free(tmp1);
 			free(tmp2);
-			if (ft_strlen((char *)buffer) > i)
-			{
-				tmp1 = *rest;
-				if (!(tmp2 = ft_substr((char *)buffer, i + 1, ft_strlen((char *)buffer))))
-					return (-1);
-				if (!(*rest = ft_strjoin(tmp1, tmp2)))
-					return (-1);
-				free(tmp1);
-				free(tmp2);
-			}
+			tmp1 = *rest;
+			if (!(tmp2 = ft_substr((char *)buffer, ++i, ft_strlen((char *)buffer))))
+				return (-1);
+			if (!(*rest = ft_strjoin(tmp1, tmp2)))
+				return (-1);
+			free(tmp1);
+			free(tmp2);
 			return (1);
 		}
 		if (!(*line = ft_strjoin(tmp1, (char *)buffer)))
