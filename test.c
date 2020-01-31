@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 08:04:56 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/29 12:01:04 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/31 13:08:25 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,25 +57,25 @@ int		main(int ac, char **av)
 		ft_putstr("~ Please enter the file path.\n");
 		return (0);
 	}
+	else if (ac == 1)
+		fd = 0;
 	else if (ac == 2 && (fd = open(av[1], O_RDONLY)) == -1)
 	{
 		ft_putstr("~ The file could not be opened.\n");
 		return (0);
 	}
-	else
-		fd = 0;
 	
 	i = 0;
 	while ((ret = get_next_line(fd, &line)) == 1)
 	{
 		ft_putnbr(i++);
-		ft_putstr(" *** |");
+		ft_putstr(" -*- |");
 		ft_putstr(line);
 		ft_putstr("|\n");
 		free(line);
 	}
 	ft_putnbr(i++);
-	ft_putstr(" *** |");
+	ft_putstr(" -*- |");
 	ft_putstr(line);
 	ft_putstr("|\n");
 	free(line);
