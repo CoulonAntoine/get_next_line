@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 07:16:32 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/27 13:34:40 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/31 16:56:39 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	*ft_calloc(size_t count, size_t size)
 	if (!(ptr = malloc(count * size)))
 		return (NULL);
 	i = 0;
-	while (i < count * size)
+	while ((size_t)i < count * size)
 	{
 		ptr[i] = 0;
 		i++;

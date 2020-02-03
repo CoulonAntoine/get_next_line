@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 07:15:36 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/31 15:43:43 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/03 09:06:21 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	ft_retrieve_rest(char **rest, char **line)
 	i = (ft_findnl(tmp) > -1) ? ft_findnl(tmp) : (ft_strlen(tmp) + 1);
 	if (!(*line = ft_substr(tmp, 0, i++)))
 		return (-1);
-	if (ft_strlen(tmp) > i)
+	if ((int)ft_strlen(tmp) > i)
 	{
 		if (!(*rest = ft_substr(tmp, i, ft_strlen(tmp))))
 			return (-1);
